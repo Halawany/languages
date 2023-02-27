@@ -1,7 +1,8 @@
 from django.urls import path
 
-from .views import LanguageList
+from .views import LanguageList, ParadigmsList
 
 urlpatterns = [
-    path('v1', LanguageList.as_view(),)
+    path('languages/', LanguageList.as_view(),),
+    path('paradigms/', ParadigmsList.as_view(),),
 ]
