@@ -8,4 +8,23 @@ services:
       - .:/langugaes
     ports:
       - 8000:8000
+    environment:
+      - "DJANGO_SECRET_KEY=django-insecure-z7c)fu(6$$+5^)ck=jz84dish@p)_ijjm#gv6dw5e@ry8_p@mkh"
+      - "DJANGO_DEBUG=1"
+      - POSTGRES_USER=languages
+      - POSTGRES_PASSWORD= asdasdhdlfdsiogjfkjgkldfjg78947598345rgdlfkg@$$#%$$^%&^%*
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=languages
+      - POSTGRES_PASSWORD= asdasdhdlfdsiogjfkjgkldfjg78947598345rgdlfkg@$$#%$$^%&^%* 
+    ports:
+    - '5432:5432'
 
+volumes:
+  postgres_data:
