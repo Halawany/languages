@@ -65,7 +65,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'languages.wsgi.application'
 
 #rest_framework settings
-REST_FRAMEOWKR = {
+REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
