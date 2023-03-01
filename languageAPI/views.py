@@ -10,5 +10,6 @@ class LanguageList(generics.ListCreateAPIView):
     serializer_class = LanguageSerializer
 
 class ParadigmsList(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated,]
     queryset = Paradigm.objects.all()
     serializer_class = ParadigmSerializer
