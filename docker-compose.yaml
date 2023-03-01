@@ -1,11 +1,12 @@
-version: '3.8'
+version: '3.9'
 
 services:
   languages:
     build: .
+    restart: always
     command: python3 /languages/manage.py runserver 0.0.0.0:8000
     volumes: 
-      - .:/langugaes
+      - .:/languages
     ports:
       - 8000:8000
     environment:
@@ -24,7 +25,7 @@ services:
       - POSTGRES_USER=languages
       - POSTGRES_PASSWORD= asdasdhdlfdsiogjfkjgkldfjg78947598345rgdlfkg@$$#%$$^%&^%* 
     ports:
-    - '5432:5432'
+    - "5432:5432"
 
 volumes:
   postgres_data:
