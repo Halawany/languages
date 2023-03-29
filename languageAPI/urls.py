@@ -1,9 +1,8 @@
-from django.urls import path
+from rest_framework import routers
 
-from .views import LanguageList, ParadigmsList, LanguageUpdateOrDestroy
+from .views import LanguageViewSet, ParadigmViewSet
 
-urlpatterns = [
-    path('', LanguageList.as_view(),),
-    path('paradigms/', ParadigmsList.as_view(),),
-    path('language/<int:pk>', LanguageUpdateOrDestroy.as_view(), ),
-]
+router = routers.SimpleRouter()
+router.register(r'language', LanguageViewSet)
+router.register(r'paradigm', ParadigmViewSet)
+urlpatterns = router.urls
