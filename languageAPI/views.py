@@ -1,23 +1,14 @@
-from rest_framework import generics
-from .serializers import LanguageSerializer, ParadigmSerializer, LanguageActionsSerializer
+from rest_framework import generics, viewsets
+from .serializers import LanguageViewSetSerializer, ParadigmViewSetSerializer
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Language, Paradigm
 
-class LanguageList(generics.ListCreateAPIView):
-    permission_classes = [IsAuthenticated,]
+
+class LanguageViewSet(viewsets.ModelViewSet):
     queryset = Language.objects.all()
-    serializer_class = LanguageSerializer
+    serializer_class = LanguageViewSetSerializer
 
-class  LanguageUpdateOrDestroy(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated,]
-    serializer_class = LanguageActionsSerializer
-
-    def get_queryset(self):
-        return Language.objects.filter(pk=self.kwargs["pk"])
-    
-
-class ParadigmsList(generics.ListCreateAPIView):
-    permission_classes = [IsAuthenticated,]
+class ParadigmViewSet(viewsets.ModelViewSet):
     queryset = Paradigm.objects.all()
-    serializer_class = ParadigmSerializer
+    serializer_class = ParadigmViewSetSerializer
