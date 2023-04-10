@@ -8,7 +8,9 @@ from .models import Language, Paradigm
 class LanguageViewSet(viewsets.ModelViewSet):
     queryset = Language.objects.all()
     serializer_class = LanguageViewSetSerializer
+    permission_classes = [IsAuthenticated]
 
 class ParadigmViewSet(viewsets.ModelViewSet):
     queryset = Paradigm.objects.all()
     serializer_class = ParadigmViewSetSerializer
+    permission_classes = [IsAuthenticated]
